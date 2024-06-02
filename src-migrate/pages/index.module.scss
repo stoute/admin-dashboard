@@ -1,0 +1,53 @@
+// fixme: module
+@import '../components/Bsmp/scss/main';
+
+// test
+.title {
+  color: red !important;
+}
+
+.no-padding {
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+}
+
+.no-margin {
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+.center {
+  text-align: center;
+}
+.cv-header {
+  text-align: center;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.sketch-container {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+}
+
+article#music {
+  iframe {
+    padding-bottom: $padding/2;
+    padding-top: $padding;
+  }
+  .cv-header {
+    margin: $padding 0 0 0;
+    padding: 0 0 0 0;
+  }
+}
+
+article#variations {
+  background: transparent;
+  padding: 0 0 0 0;
+  min-width: 75vw;
+}
