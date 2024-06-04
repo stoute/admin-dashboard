@@ -1,15 +1,26 @@
-import { createContext } from 'react';
-import { signal, computed, effect } from '@preact/signals-react';
-import { Firebase } from '../utils/firebase';
+import { createContext } from "react";
+import { signal, computed, effect } from "@preact/signals-react";
+import { Firebase } from "../../src-migrate/utils/firebase";
 
-import packageJson from '../../package.json';
-import configJson from '../config.json';
+import packageJson from "../../package.json";
+import configJson from "../config.json";
 
-const production: boolean = process.env.NODE_ENV === 'production';
-const firebaseConfig = JSON.parse(process.env.NEXT_PUBLIC_FIREBASE_CONFIG_JSON);
+const production: boolean = process.env.NODE_ENV === "production";
+const firebaseConfig: string = JSON.parse(
+  process.env.NEXT_PUBLIC_FIREBASE_CONFIG_JSON as string,
+);
 const firebaseCredentials = {
   email: process.env.NEXT_PUBLIC_FIREBASE_EMAIL,
   password: process.env.NEXT_PUBLIC_FIREBASE_PASSWORD,
+};
+
+const store = {
+  loading: signal(true),
+  theme: signal(configJson.theme),
+  language: signal(configJson.language),
+  count: signal(1),
+  data: signal({}),
+  // double: computed(() => count.value * 2);
 };
 
 export class App {
@@ -18,6 +29,7 @@ export class App {
   public production: boolean = production;
   public config: any = configJson;
   public store = {
+    loading: signal(true),
     theme: signal(configJson.theme),
     language: signal(configJson.language),
     count: signal(1),
@@ -29,8 +41,10 @@ export class App {
 
   constructor() {
     this.firebase = new Firebase();
-    if (process.env.NEXT_PUBLIC_NODE_ENV === 'production')
+    if (process.env.NEXT_PUBLIC_NODE_ENV === "production")
       this.production = true;
+    this.store = store;
+    this.init();
   }
 
   async init() {
@@ -40,10 +54,13 @@ export class App {
       const value = configJson.remoteData[key];
       console.log(key, value);
     });
+    this.store.loading.value = false;
+    console.log("init");
+    console.log(this);
   }
 
   debug(value: any = undefined): void {
-    console.log('debug');
+    console.log("debug");
     if (this.production) return;
     if (value) {
       console.log(value);
@@ -57,7 +74,7 @@ export class App {
     if (this.config.autoLogin) {
       await this.firebase.login(
         firebaseCredentials.email,
-        firebaseCredentials.password
+        firebaseCredentials.password,
       );
     }
   }

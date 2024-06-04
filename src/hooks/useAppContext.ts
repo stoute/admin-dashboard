@@ -1,7 +1,7 @@
-import { useContext } from 'react';
+import { useContext } from "react";
 // import { useTheme } from 'styled-components';
-import { AppContext, App } from '../providers';
-import { useEffectOnce } from '../hooks';
+import { AppContext, App } from "@/providers";
+import { useEffectOnce } from "./index";
 
 export const useAppContext = () => {
   const app: App = useContext(AppContext);

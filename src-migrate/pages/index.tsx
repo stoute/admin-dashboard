@@ -6,7 +6,7 @@ import TopNav from '../components/TopNav/Home';
 import Footer from '../components/footer/footer';
 import Header from '../components/Bsmp/components/Header';
 import Main from '../components/Bsmp/components/Main';
-import { useAppContext, useLocalStorage } from '../hooks';
+import { useAppContext, useLocalStorage } from '../../src/hooks';
 
 // import styles from './index.module.scss';
 

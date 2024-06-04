@@ -14,7 +14,7 @@ import 'i18n';
 import 'styles/globals.scss';
 import 'components/Bsmp/scss/main.scss';
 
-import { AppContext, appInstance } from '../providers';
+import { AppContext, appInstance } from '../../src/providers';
 
 const SafeHydrate: FunctionComponent = ({ children }) => (
   <div suppressHydrationWarning>
