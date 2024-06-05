@@ -1,12 +1,12 @@
 import { createContext } from "react";
 import { signal, computed, effect } from "@preact/signals-react";
-import { Firebase } from "../../src-migrate/utils/firebase";
+import { Firebase } from "@/libs/firebase";
 
 import packageJson from "../../package.json";
 import configJson from "../config.json";
 
-// global app state
-const store = {
+// global app signals
+const signals = {
   loading: signal(true),
   theme: signal(configJson.theme),
   language: signal(configJson.language),
@@ -28,7 +28,7 @@ export class App {
   public version: string = packageJson.version;
   public production: boolean = production;
   public config: any = configJson;
-  public state = store;
+  public state = signals;
   public firebase: Firebase;
   public apikeyOpenAi: string = process.env.NEXT_PUBLIC_OPENAI_API_KEY;
 
