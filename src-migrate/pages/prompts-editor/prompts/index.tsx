@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-translate-i18next';
 
 import Layout from 'components/Layout';
 import TopNav from 'components/TopNav/Home';
