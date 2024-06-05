@@ -13,15 +13,20 @@
     "@bsmp/api": "^1.0.19",
     "@bsmp/core": "^1.0.25",
     "@bsmp/entities": "^1.0.30",
+    "@casl/ability": "^6.7.1",
+    "@casl/react": "^3.1.0",
     "@preact/signals-react": "^2.0.1",
     "apexcharts": "^3.45.2",
     "firebase": "^10.12.2",
     "flatpickr": "^4.6.13",
     "jsvectormap": "^1.5.3",
     "next": "14.1.0",
+    "next-translate": "^2.6.2",
     "react": "^18",
     "react-apexcharts": "^1.4.1",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "zustand": "^4.5.2",
+    "zustand-signal": "^0.6.0"
   },
   "devDependencies": {
     "@types/node": "^20",

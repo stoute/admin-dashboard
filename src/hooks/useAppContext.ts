@@ -9,7 +9,7 @@ export const useAppContext = () => {
 
   return {
     app,
-    store: app.store,
+    store: app.state,
     fb: app.firebase,
     // scTheme,
     useEffectOnce,
